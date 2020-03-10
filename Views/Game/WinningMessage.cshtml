@@ -1,0 +1,14 @@
+﻿@model HangManGameBoard
+@{
+    ViewData["Title"] = "WinningMessage";
+    int score = Convert.ToInt32(ViewData["score"]);
+}
+
+<h1>You win!</h1>
+
+<h3>Your score: @score.</h3>
+<h3>The word was @HangManGameBoard.Word</h3>
+
+<form asp-controller="Game" asp-action="ResetGame" method="post" style="display: inline">
+    <input class="button" type="submit" value="Play Again!" />
+</form>

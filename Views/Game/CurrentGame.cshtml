@@ -1,0 +1,60 @@
+﻿@model HangManGameBoard
+@{
+    ViewData["Title"] = "CurrentGame";
+    string name = ViewData["name"].ToString();
+    int score = Convert.ToInt32(ViewData["score"]);
+    bool isCorrectLetter = Convert.ToBoolean(ViewData["isCorrectLetter"]);
+}
+
+    @*<h1 id="title">Guess Word!</h1>*@
+    <section id="content">
+        <h1 id="title">Guess Word!</h1>
+        <div id="game_container">
+            <div id="clipart">
+                @if (!isCorrectLetter)
+                {
+                    <img src="~/Images/controllerupset.jpg" />
+                }
+                else
+                {
+                    <img src="~/Images/controllerhappy.jpg" />
+                }
+            </div>
+            @*<div id="app"></div>*@
+            <div id="form">
+                <div class="scoreboard">
+                    <h3><strong>Score:</strong> @score</h3>
+                    <h3><strong>Guesses Left:</strong> @Model.Counter.GuessesRemaining</h3>
+                </div>
+                <h3>
+                    @foreach (Char character in Model.SecretWord)
+                    {
+                        <span>@character</span>
+                    }
+                </h3>
+
+                @for (int i = 0; i <= Model.PossibleLetters.Length - 1; i++)
+                {
+                    <form class="form-centered" asp-controller="Game" asp-action="MakePlay" method="post" style="display: inline">
+                        @if (!Model.Guesses.Contains(Model.PossibleLetters[i]))
+                        {
+                            <input type="hidden" value="@i" name="index" />
+                            <input class="button" type="submit" value="@Model.PossibleLetters[i]" />
+                        }
+                        else
+                        {
+                            <input type="hidden" value="@i" name="index" />
+                            <input class="button disabled" type="submit" value="@Model.PossibleLetters[i]" disabled />
+                        }
+                    </form>
+                    @if ((i + 1) % 9 == 0)
+                    {
+                        <br />
+                    }
+                }
+            </div>
+        </div>
+    </section>
+@**@
+@*!Model.Guesses.Contains(Model.PossibleLetters[i])*@
+@*if (Model.PossibleLetters[i] != ' ')*@
