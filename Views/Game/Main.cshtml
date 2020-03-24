@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Main";
+}
+
+<div class="main-page">
+    <h1 class="title">10 Word Guess!</h1>
+    <div class="main-page-content">
+        <p>Try your best to guess each word over the course of 10 rounds.</p> 
+        <p>You'll collect points for correctly guessing a word. The less attempts you make, the more points you'll earn.</p>
+        <p>See how many points you can get at the end!</p>
+    </div>
+
+    <form asp-controller="Game" asp-action="StartRound" method="post">
+        <input class="continue-button" type="submit" value="Let's Play!" />
+    </form>
+</div>
+

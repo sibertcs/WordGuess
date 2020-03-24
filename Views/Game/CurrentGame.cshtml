@@ -1,60 +1,51 @@
-﻿@model HangManGameBoard
+﻿@model WordGuessGame
 @{
     ViewData["Title"] = "CurrentGame";
-    string name = ViewData["name"].ToString();
+    //string name = ViewData["name"].ToString();
     int score = Convert.ToInt32(ViewData["score"]);
-    bool isCorrectLetter = Convert.ToBoolean(ViewData["isCorrectLetter"]);
+    int roundNumber = Convert.ToInt32(ViewData["roundNumber"]);
+    bool isGuessRight = Convert.ToBoolean(ViewData["isCorrectLetter"]);
 }
 
-    @*<h1 id="title">Guess Word!</h1>*@
-    <section id="content">
-        <h1 id="title">Guess Word!</h1>
-        <div id="game_container">
-            <div id="clipart">
-                @if (!isCorrectLetter)
-                {
-                    <img src="~/Images/controllerupset.jpg" />
-                }
-                else
-                {
-                    <img src="~/Images/controllerhappy.jpg" />
-                }
+<section class="content">
+    <h1 class="title" id="title_round">10 Word Guess!</h1>
+    <div class="game_container">
+        <div class="clipart">
+            <img src=@(isGuessRight ? "/Images/happy_controller.jpg" : "/Images/upset_controller.jpg") />
+        </div>
+        <div class="form">
+            <div class="scoreboard">
+                <h4><strong>Score:</strong> @score</h4>
+                <h4><strong>Round:</strong> @roundNumber / 10</h4>
+                <h4><strong>Guesses Left:</strong> @Model.Counter.GuessesRemaining</h4>
             </div>
-            @*<div id="app"></div>*@
-            <div id="form">
-                <div class="scoreboard">
-                    <h3><strong>Score:</strong> @score</h3>
-                    <h3><strong>Guesses Left:</strong> @Model.Counter.GuessesRemaining</h3>
-                </div>
-                <h3>
-                    @foreach (Char character in Model.SecretWord)
-                    {
-                        <span>@character</span>
-                    }
-                </h3>
-
+            <h3>
+                @foreach (Char character in Model.SecretWord)
+                {
+                    <span>@character</span>
+                }
+            </h3>
+            <div class ="button-form">
                 @for (int i = 0; i <= Model.PossibleLetters.Length - 1; i++)
                 {
-                    <form class="form-centered" asp-controller="Game" asp-action="MakePlay" method="post" style="display: inline">
+                    <form asp-controller="Game" asp-action="MakePlay" method="post" style="display: inline">
                         @if (!Model.Guesses.Contains(Model.PossibleLetters[i]))
                         {
-                            <input type="hidden" value="@i" name="index" />
-                            <input class="button" type="submit" value="@Model.PossibleLetters[i]" />
+                            <div class="form-group">
+                                <input type="hidden" value="@i" name="index" />
+                                <input class="button" type="submit" value="@Model.PossibleLetters[i]" />
+                            </div>
                         }
                         else
                         {
-                            <input type="hidden" value="@i" name="index" />
-                            <input class="button disabled" type="submit" value="@Model.PossibleLetters[i]" disabled />
-                        }
+                            <div class="form-group">
+                                <input type="hidden" value="@i" name="index" />
+                                <input class="button disabled" type="submit" value="@Model.PossibleLetters[i]" disabled />
+                            </div>
+                       }
                     </form>
-                    @if ((i + 1) % 9 == 0)
-                    {
-                        <br />
-                    }
                 }
             </div>
         </div>
-    </section>
-@**@
-@*!Model.Guesses.Contains(Model.PossibleLetters[i])*@
-@*if (Model.PossibleLetters[i] != ' ')*@
+    </div>
+</section>

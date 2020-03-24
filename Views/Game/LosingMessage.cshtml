@@ -1,8 +1,19 @@
-﻿
+﻿@model WordGuessGame
 @{
     ViewData["Title"] = "LosingMessage";
+    int score = Convert.ToInt32(ViewData["score"]);
 }
 
-<h1>You Lose</h1>
+<div class="end-round-page">
+    <h1>Sorry! You didn't get this one!</h1>
+    <h3>Total score: @score</h3>
+    <h3>The word was: @WordGuessGame.Word</h3>
 
-<h3>The word was @HangManGameBoard.Word</h3>
+    <form asp-controller="Game" asp-action="EvaluateSession" style="display: inline">
+        <input class="continue-button" type="submit" value="Next" />
+    </form>
+
+    <form asp-controller="Game" asp-action="ResetSession" style="display: inline">
+        <input class="continue-button" type="submit" value="Quit" />
+    </form>
+</div>

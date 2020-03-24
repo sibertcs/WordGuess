@@ -1,0 +1,277 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+#nav-header {
+    text-align: center;
+    font-family: Bungee Shade;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 12px;
+}
+
+.main-page-content {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.main-page-content > p {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Alef;
+}
+.continue-button {
+    background-color: teal;
+    color: white;
+    border-radius: 15px 15px;
+    font-family: Alef;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.continue-button:active {
+    background-color: #EF3E36;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.continue-button:hover {
+    background-color: #004747;
+    color: white;
+}
+
+.title {
+    font-family: Bungee Shade;
+    color: black;
+    font-size: 35px;
+    margin-top: 0px;
+    text-align: center;
+    padding-top: 0;
+    padding-bottom: 20px;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    padding-top: 0;
+}
+
+.clipart {
+    padding-top: 0;
+}
+
+.button-form {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.form-group {
+    padding-left: 3px;
+    padding-right: 3px;
+    display: flex;
+    width: auto;
+}
+.button {
+    width: 35px;
+    height: 35px;
+    border-radius: 180px;
+    border-width: 3px;
+    text-align: center;
+    font-family: Alef;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: teal;
+    color: white;
+}
+
+.button:active {
+    background-color: #EF3E36;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.button:hover {
+    background-color: #004747;
+    color: white;
+}
+
+.disabled {
+    background-color: white;
+    border-color: darkgrey;
+    color: darkgrey;
+    pointer-events: none;
+}
+
+.end-round-page > h1, h3 {
+    font-family: Alef;
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+/*.clear {
+    clear: both;
+    height: 60px;
+}
+
+.footer {
+    position: static;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    white-space: nowrap;
+    line-height: 30px; 
+    background-color: white;
+
+}*/
+
+.clipart {
+    grid-area: image;
+    justify-content: center;
+    align-self: center;
+    width: 100%
+}
+
+img {
+    animation: shake 0.5s;
+    width: 42%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+}
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+
+
+
+    .main-page-content {
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .game-container {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas:
+            "image content";
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-area: content;
+    }
+
+    .clipart {
+        grid-area: image;
+    }
+
+    .button-form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 75%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .form-group {
+        padding-left: 3px;
+        padding-right: 3px;
+        display: flex;
+        width: auto;
+    }
+
+    .button {
+        width: 45px;
+        height: 45px;
+        border-radius: 180px;
+    }
+    img {
+        animation: shake 0.5s;
+        grid-area: image;
+        float: left;
+        width: 35%;
+        max-width: 100%;
+        height: auto;
+    }
+
+
+
+    
+    
+}
+
+
+
+
+
+

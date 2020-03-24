@@ -1,0 +1,18 @@
+﻿@model SessionCounter
+@{
+    ViewData["Title"] = "SessionEnd";
+}
+
+<div class="end-round-page">
+    <h1>Game Over!</h1>
+    <br />
+    <h3>Final score: @Model.Score</h3>
+    <br />
+    <h3>You got @Model.NumberOfGamesWon out of 10 words!</h3>
+    <br />
+    <h3>Play again to see if you can beat your high score!</h3>
+
+    <form asp-controller="Game" asp-action="ResetSession" method="post" style="display: inline">
+        <input class="continue-button" type="submit" value="Return to main menu" />
+    </form>
+</div>
